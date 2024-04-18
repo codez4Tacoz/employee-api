@@ -301,8 +301,7 @@ class EmployeeControllerTest {
  
          String content = result.getResponse().getContentAsString();
  
-         assertThat(content).isNotNull();
-         assertThat(content).isEqualTo(employee1.getId());
+         assertThat(content).isNotNull().isEqualTo(employee1.getId());
      }
  
      @Test

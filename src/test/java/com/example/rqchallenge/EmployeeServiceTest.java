@@ -311,7 +311,7 @@ public class EmployeeServiceTest {
 
         String employeeIdReturned = employeeService.deleteEmployeeById(employeeIdToDelete);
 
-        assertEquals(employeeIdReturned, null);       
+        assertEquals(null, employeeIdReturned);       
     }
 
     @Test
