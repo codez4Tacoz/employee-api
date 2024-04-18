@@ -242,12 +242,12 @@ public class EmployeeServiceTest {
 
     @Test
     void createEmployee_returnsEmployeeWithValuesMatchingInputAndIgnoresExtraValues_whenPassedEmployeeValuesAndExtraValues() throws Exception {
-        Map<String, Object> employeeInputMap = new HashMap<String, Object>();
-        employeeInputMap.put("employee_name", employee1.getEmployeeName());
-        employeeInputMap.put("employee_age", employee1.getEmployeeAge());
-        employeeInputMap.put("employee_salary", employee1.getEmployeeSalary());
-        employeeInputMap.put("foo", employee1.getEmployeeSalary());
-        employeeInputMap.put("bar", employee1.getEmployeeSalary());
+        Map<String, Object> controllerInputMap = new HashMap<String, Object>();
+        controllerInputMap.put("employee_name", employee1.getEmployeeName());
+        controllerInputMap.put("employee_age", employee1.getEmployeeAge());
+        controllerInputMap.put("employee_salary", employee1.getEmployeeSalary());
+        controllerInputMap.put("foo", employee1.getEmployeeSalary());
+        controllerInputMap.put("bar", employee1.getEmployeeSalary());
 
         Map<String, Object> remoteInputMap = new HashMap<String, Object>();
         remoteInputMap.put("name", employee1.getEmployeeName());
@@ -262,7 +262,7 @@ public class EmployeeServiceTest {
         when(employeeClient.create(remoteInputMap)).thenReturn(employeeDto);
         Employee expectedEmployee = new Employee(dataResponse);
 
-        Employee employeeReturned = employeeService.createEmployee(employeeInputMap);
+        Employee employeeReturned = employeeService.createEmployee(controllerInputMap);
 
         assertEquals(expectedEmployee, employeeReturned);       
     }
