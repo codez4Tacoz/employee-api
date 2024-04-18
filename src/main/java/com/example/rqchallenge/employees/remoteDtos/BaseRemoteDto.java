@@ -5,9 +5,6 @@ public class BaseRemoteDto<T> {
     private String message;
     private T data;
 
-    public BaseRemoteDto() {
-    }
-
     public String getStatus() {
         return status;
     }
@@ -27,7 +24,7 @@ public class BaseRemoteDto<T> {
     public T getData() {
         return data;
     }
-    
+
     public void setData(T data) {
         this.data = data;
     }
